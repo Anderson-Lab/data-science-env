@@ -15,4 +15,4 @@ EXPOSE 8888
 
 # Running jupyter notebook
 # --NotebookApp.token ='demo' is the password
-CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token='demo'"]
+CMD ["jupyter", "lab", "--no-browser", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token='demo'"]

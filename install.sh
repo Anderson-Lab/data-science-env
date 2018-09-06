@@ -1,1 +1,1 @@
-docker build -t data-science-env .
+sudo docker pull mikebirdgeneau/jupyterlab
