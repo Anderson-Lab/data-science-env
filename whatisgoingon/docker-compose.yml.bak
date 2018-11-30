@@ -1,0 +1,35 @@
+services:
+  scheduler:
+    build:
+      context: ./base
+      dockerfile: Dockerfile
+    image: daskdev/dask
+    hostname: dask-scheduler
+    ports:
+      - "8786:8786"
+      - "8787:8787"
+    command: ["dask-scheduler"]
+
+  worker:
+    build:
+      context: ./base
+      dockerfile: Dockerfile
+    image: daskdev/dask
+    hostname: dask-worker
+    command: ["dask-worker", "scheduler:8786"]
+
+  notebook:
+    build:
+      context: ./notebook
+      dockerfile: Dockerfile
+    image: daskdev/dask-notebook
+    ports: 
+        - "8888:8888"
+
+jupyterlab:
+  build: ./jupyterlab
+  ports:
+    - "8888:8888"
+  volumes:
+    - ./data:/opt/app/data
+  entrypoint: sh -c 'jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root'
