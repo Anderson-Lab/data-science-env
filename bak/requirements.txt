@@ -107,7 +107,7 @@ msgpack-numpy==0.4.1
 msgpack-python==0.5.4
 murmurhash==0.28.0
 mxnet==1.3.0b20180831
-nbconvert==5.3.1
+nbconvert==6.5.1
 nbformat==4.4.0
 nodejs==0.1.1
 nose==1.3.7
